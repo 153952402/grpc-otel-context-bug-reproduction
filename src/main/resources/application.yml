@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: grpc-otel-context-bug-reproduction
+
+# gRPC Server Configuration
+grpc:
+  server:
+    port: 9090  # Downstream service port
+
+# Upstream gRPC service configuration (separate server on port 9091)
+upstream:
+  grpc:
+    port: 9091
+
+logging:
+  level:
+    com.example.reproduction: DEBUG
+    io.grpc: INFO
+    io.opentelemetry: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+

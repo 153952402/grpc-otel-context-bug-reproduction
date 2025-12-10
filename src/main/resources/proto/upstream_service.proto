@@ -1,0 +1,21 @@
+syntax = "proto3";
+package com.example.reproduction.upstream.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.example.reproduction.upstream.grpc";
+option java_outer_classname = "UpstreamServiceProto";
+
+service UpstreamService {
+  rpc Process(ProcessRequest) returns (ProcessResponse);
+}
+
+message ProcessRequest {
+  string id = 1;
+  string data = 2;
+}
+
+message ProcessResponse {
+  bool success = 1;
+  string result = 2;
+}
+

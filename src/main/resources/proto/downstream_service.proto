@@ -1,0 +1,20 @@
+syntax = "proto3";
+package com.example.reproduction.downstream.grpc;
+
+option java_multiple_files = true;
+option java_package = "com.example.reproduction.downstream.grpc";
+option java_outer_classname = "DownstreamServiceProto";
+
+service DownstreamService {
+  rpc Handle(HandleRequest) returns (HandleResponse);
+}
+
+message HandleRequest {
+  string id = 1;
+  string data = 2;
+}
+
+message HandleResponse {
+  bool success = 1;
+}
+
